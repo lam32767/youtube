@@ -1,0 +1,321 @@
+﻿@{
+    ViewBag.Title = "Help Page";
+}
+
+<div class="row">
+    <div class=WordSection1>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;background:white'>
+            <span style='font-size:12.0pt;font-family:
+"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";color:#212121'>
+                The
+                YouTube Data API provides access to YouTube. In this assignment you will write
+                an MVC web application which uses the YouTube data <span class=SpellE>
+                    <span class=GramE>api</span>
+                </span> to provide a user interface for search and video
+                details. Please use ASP.Net MVC in this project, but outside of that feel free
+                to use any frameworks or libraries you wish to accomplish this task. If you
+                choose to use code generators or a boilerplate project as a starting point,
+                please make sure we can tell which parts of the project are yours and which are
+                generated or from the boilerplate. <span class=GramE>
+                    Descriptions in the readme
+                    and a range of commits helps
+                </span> with this.
+            </span><span style='font-size:
+12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'><o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;background:white'>
+            <span style='font-size:12.0pt;font-family:
+"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";color:#212121'>
+                Your
+                application should consist of the following views/features:
+            </span><span style='font-size:12.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'><o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;mso-outline-level:2;background:white'>
+            <b>
+                <span style='font-size:18.0pt;font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>Search</span>
+            </b><b>
+                <span style='font-size:18.0pt;
+font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:black'><o:p></o:p></span>
+            </b>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;color:#212121'>·</span><span style='font-size:
+7.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>Search by keyword<o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                Interpretation:<span style='mso-spacerun:yes'></span>Search the world of YouTube in the same
+                manner as we would on <span class=GramE>the you</span> tube web site, in the
+                search box.<span style='mso-spacerun:yes'>  </span>
+            </span><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:#212121'><o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;color:#212121'>·</span><span style='font-size:
+7.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>Sort by date, rating and relevance<o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                Interpretation: “date” = date the video was
+                posted.<span style='mso-spacerun:yes'>  </span>“<span class=GramE>rating</span>”
+                = Ida know. “<span class=GramE>relevance</span>” = exactly what order the
+                videos come up in the search results.<span style='mso-spacerun:yes'>
+                </span>Compare my output to what the search would show on youtube.com; that’s
+                what order the records come up. <o:p></o:p>
+            </span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                I added a link to “View”, which will just open
+                the video on a new tab on the browser.<span style='mso-spacerun:yes'>
+                </span>The link “<span class=SpellE>Fave</span> it” will add that video to your
+                favorites.
+            </span><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:
+"Times New Roman";mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;
+color:#212121'><o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;mso-outline-level:2;background:white'>
+            <b>
+                <span style='font-size:18.0pt;font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>Video Details</span>
+            </b><b>
+                <span style='font-size:18.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";color:black'><o:p></o:p></span>
+            </b>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;color:#212121'>·</span><span style='font-size:
+7.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>Video player<o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>
+                <span style='mso-tab-count:1'>      </span>I make a fixed iframe
+                just to show the video.<span style='mso-spacerun:yes'>  </span>You may visit
+                the page Home\Details or Home\Details\string where [string] is the unique you
+                tube video id that all you tube videos use to identify.<span style='mso-spacerun:yes'></span>If you do not specify a string, this page
+                will default to video “
+            </span><span style='font-size:9.5pt;font-family:Consolas;
+mso-bidi-font-family:Consolas;color:#A31515'>wZZ7oFKsKzY</span><span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>
+                ” which is the 10 hour <span class=SpellE>nyan</span> cat video.
+            </span><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:#212121'><o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;color:#212121'>·</span><span style='font-size:
+7.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>Meta information like comments, likes, dislikes, channel<o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                The information shown here will be what I
+                persist to the database at the time the video is added to favorites. Therefore,
+                if more likes / dislikes / comments are added to the real world of you tube
+                after you favorite the video, the latest information will not show on this
+                page.<o:p></o:p>
+            </span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                Comments can go on forever.<span style='mso-spacerun:yes'></span>In the interest of demonstrating the
+                functionality of the whole system, and not digging too deep into individual
+                details, I am displaying only the first comment.<span style='mso-spacerun:yes'></span>Making an open-ended list of all comments is
+                doable; a new one <span class=GramE>to</span> many relationship in the database
+                and the view model.<span style='mso-spacerun:yes'>  </span>
+            </span><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:#212121'><o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;color:#212121'>·</span><span style='font-size:
+7.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>Ability to add/remove from favorites (see below)<o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                In the search results window, I added a link “<span class=SpellE>Fave</span> it” which will add that video to your favorites. <o:p></o:p>
+            </span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                In the “Favorites” page, I added a link
+                “Remove” which will remove that video from your favorites.
+            </span><span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:#212121'><o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='mso-ascii-font-family:Calibri;mso-fareast-font-family:"Times New Roman";
+mso-hansi-font-family:Calibri;mso-bidi-font-family:Calibri;color:#212121'><o:p>&nbsp;</o:p></span>
+        </p>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;mso-outline-level:2;background:white'>
+            <b>
+                <span style='font-size:18.0pt;font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:black'>Favorite Videos</span>
+            </b><b>
+                <span style='font-size:18.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:
+"Times New Roman";color:black'><o:p></o:p></span>
+            </b>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:"Times New Roman";
+mso-bidi-font-family:Calibri;color:#212121'>·</span><span style='font-size:
+7.0pt;font-family:"Times New Roman","serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class=GramE>
+                <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>The</span>
+            </span><span style='font-family:
+"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";color:#212121'>
+                list of videos the user has favorited<o:p></o:p>
+            </span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'><o:p>&nbsp;</o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'><o:p>&nbsp;</o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'><o:p>&nbsp;</o:p></span>
+        </p>
+
+        <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:11.25pt;
+margin-left:.25in;text-indent:-.25in;line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'><o:p>&nbsp;</o:p></span>
+        </p>
+
+        <p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+11.25pt;margin-left:.25in;mso-add-space:auto;text-indent:-.25in;line-height:
+normal;mso-list:l0 level1 lfo1;background:white'>
+            <![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:11.0pt;font-family:Symbol;
+mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol;color:#212121'>
+                <span style='mso-list:Ignore'>
+                    ·<span style='font:7.0pt "Times New Roman"'>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </span>
+            </span><![endif]><span style='font-family:"Helvetica","sans-serif";
+mso-fareast-font-family:"Times New Roman";color:#212121'>
+                Implement your own
+                data storage system<o:p></o:p>
+            </span>
+        </p>
+
+        <p class=MsoNormal style='margin-bottom:11.25pt;line-height:normal;background:
+white'>
+            <span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:
+"Times New Roman";color:#212121'>
+                Because all you tube videos use a string of
+                random characters like “
+            </span><span style='font-size:9.5pt;font-family:Consolas;
+mso-bidi-font-family:Consolas;color:#A31515'>wZZ7oFKsKzY</span><span style='font-family:"Helvetica","sans-serif";mso-fareast-font-family:"Times New Roman";
+color:#212121'>” to uniquely identify videos, I use that as the primary key.<o:p></o:p></span>
+        </p>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";
+mso-fareast-font-family:"Times New Roman";color:#212121'>
+                Try not to get bogged
+                down in the look and feel of the application - we’re more interested in how you
+                organize the project and which tools (patterns, libraries, frameworks,
+                dependency management, etc.) you choose to use.<o:p></o:p>
+            </span>
+        </p>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";
+mso-fareast-font-family:"Times New Roman";color:#212121'><o:p>&nbsp;</o:p></span>
+        </p>
+
+        <p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+line-height:normal;background:white'>
+            <span style='font-family:"Helvetica","sans-serif";
+mso-fareast-font-family:"Times New Roman";color:#212121'>
+                When you’re finished,
+                please put your project in a repository on either <span class=SpellE>Github</span>
+                or <span class=SpellE>Bitbucket</span> and send us a link. We’ll then do a pair
+                programming session where we’ll have some questions for you about your code and
+                possibly make some additions to it.<o:p></o:p>
+            </span>
+        </p>
+
+        <p class=MsoNormal><span style='font-family:"Helvetica","sans-serif"'><o:p>&nbsp;</o:p></span></p>
+
+    </div>
+
+</div>

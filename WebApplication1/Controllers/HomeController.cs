@@ -73,7 +73,13 @@ namespace MyYouTube.Controllers
         }
         public ActionResult Help()
         {
-            ViewBag.Message = "Help";
+            ViewBag.Message = "Help for users";
+
+            return View();
+        }
+        public ActionResult HelpTech()
+        {
+            ViewBag.Message = "Help for techies";
 
             return View();
         }

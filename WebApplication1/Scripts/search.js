@@ -23,6 +23,7 @@
             $.each(pages.items, function (index, item) {
                 //console.log(item);
                 dataset[index] = [
+                    index + 1,
                     item.snippet.title,
                     "*****",
                     makeFaveLink(item.id.videoId),
@@ -44,6 +45,7 @@
                 "data": dataset,
                 "sPaginationType": "full_numbers",
                 columns: [
+                { title: "Num" },
                 { title: "Title" },
                 { title: "Rating" },
                 { title: "Favorite" },
