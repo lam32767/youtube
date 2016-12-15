@@ -1,0 +1,50 @@
+﻿@model MyYouTube.Models.VideoModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<div>
+    <p>
+        <table id="theTable" class="display">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Rating</th>
+                    <th>Favorite</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                    <th>Channel</th>
+                    <th>Comments</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Partial("_VideoPartial", Model)
+            </tbody>
+        </table>
+    </p>
+
+    <p>
+        <iframe width="420" height="345" src=@Model.URL></iframe>
+    </p>
+
+</div>
+
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery.dataTables.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#theTable').DataTable({
+            "iDisplayLength": 1,
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>

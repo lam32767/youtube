@@ -1,0 +1,47 @@
+﻿@model  IEnumerable<MyYouTube.Models.VideoModel>
+
+
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Favorites";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+
+    <table id="theTable" class="display">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Favorite</th>
+                <th>Likes</th>
+                <th>Dislikes</th>
+                <th>Channel</th>
+                <th>Comments</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @Html.Partial("_VideoPartial", item)
+                
+            }
+        </tbody>
+    </table>
+
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery.dataTables.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#theTable').DataTable({
+            "iDisplayLength": 25,
+            "bJQueryUI": true,
+            "aaSorting": [],
+            "sPaginationType": "full_numbers"
+        });
+    });
+</script>
