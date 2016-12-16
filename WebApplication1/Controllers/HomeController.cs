@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using VideoModel;
 using DataAccess;
+using System.Linq;
 
 namespace MyYouTube.Controllers
 {
@@ -17,24 +18,49 @@ namespace MyYouTube.Controllers
         {
             ViewBag.Message = "View a video on your favorites";
 
-            string thisId = (string.IsNullOrEmpty(id)) ? "wZZ7oFKsKzY" : id;
-            
+            bool defaultVid = (string.IsNullOrEmpty(id));
+            string thisId = defaultVid ? "wZZ7oFKsKzY" : id;
 
-            MyYouTube.Models.VideoViewModel model = new Models.VideoViewModel()
+            if (defaultVid)
             {
-                ChannelTitle = "Meow channel",
-                Comment = "Like",
-                Dislikes = 3200,
-                Likes = 100000,
-                Rating = "*****",
-                Title  = "Nyan cat 10 hour",
-                Id = string.Empty,
-                EmbedURL = thisId,
-                Favorite = true,
-                PublishDate = DateTime.Today.ToShortDateString()
-            };
-            return View(model);
+                MyYouTube.Models.VideoViewModel model = new Models.VideoViewModel()
+                {
+                    ChannelTitle = "Default",
+                    Comment = "Default",
+                    Dislikes = 3,
+                    Likes = 1000000,
+                    Rating = "*****",
+                    Title = "Nyan cat 10 hour",
+                    Id = string.Empty,
+                    EmbedURL = thisId,
+                    Favorite = true,
+                    PublishDate = DateTime.Today.ToShortDateString()
+                };
+                return View(model);
+            }
+
+            using (var context = new VideoContext())
+            {
+                Video newvid = context.Videos.Where(x => x.Id == id).FirstOrDefault();
+                Models.VideoViewModel thisitem = new Models.VideoViewModel()
+                {
+                    ChannelTitle = newvid.ChannelTitle,
+                    Comment = newvid.Comment,
+                    Dislikes = newvid.Dislikes,
+                    Likes = newvid.Likes,
+                    Rating = newvid.Rating,
+                    Title = newvid.Title,
+                    Id = newvid.Id,
+                    EmbedURL = newvid.Id,
+                    Favorite = true,
+                    PublishDate = DateTime.Today.ToShortDateString()
+                };
+                
+                return View(thisitem);
+            }
         }
+
+
         public ActionResult Adder(string id)
         {
             ViewBag.Message = "Newly added video:";
@@ -76,7 +102,7 @@ namespace MyYouTube.Controllers
         {
             using (var context = new VideoContext())
             {
-                Video theRecord = context.Videos.Find("wZZ7oFKsKzY");
+                Video theRecord = context.Videos.Find(id);
                 if (theRecord != null)
                 {
                     context.Videos.Remove(theRecord);
@@ -99,35 +125,24 @@ namespace MyYouTube.Controllers
             ViewBag.Message = "Here's what you liked";
             using (var context = new VideoContext())
             {
-                var newvid = new Video
-                {
-                    Id = "wZZ7oFKsKzY",
-                    ChannelTitle = "Meow",
-                    Comment = "Comment",
-                    Dislikes = 10,
-                    Likes = 11,
-                    PublishDate = DateTime.Now.AddMonths(-8).ToShortDateString(),
-                    Rating = "*****",
-                    Title = "Nyan cat 10 hour"
-                };
-
-
-
                 List<Models.VideoViewModel> allItems = new List<Models.VideoViewModel>();
-
-                allItems.Add(new Models.VideoViewModel()
-                {
-                    ChannelTitle = newvid.ChannelTitle,
-                    Comment = newvid.Comment,
-                    Dislikes = newvid.Dislikes,
-                    Likes = newvid.Likes,
-                    Rating = "*****",     ///////todo newvid.Rating,
-                    Title = newvid.Title,
-                    Id = string.Empty,
-                    EmbedURL = newvid.Id,  ///////"wZZ7oFKsKzY"
-                    Favorite = true,
-                    PublishDate = DateTime.Today.ToShortDateString()
-                }
+                foreach (Video eachItem in context
+                                         .Videos
+                                         .Where(x => x.Id != string.Empty)
+                                         .ToList())
+                    allItems.Add(new Models.VideoViewModel()
+                    {
+                        ChannelTitle = eachItem.ChannelTitle,
+                        Comment = eachItem.Comment,
+                        Dislikes = eachItem.Dislikes,
+                        Likes = eachItem.Likes,
+                        Rating = eachItem.Rating,
+                        Title = eachItem.Title,
+                        Id = eachItem.Id,
+                        EmbedURL = eachItem.Id,  
+                        Favorite = true,
+                        PublishDate = DateTime.Today.ToShortDateString()
+                    }
                 );
                 return View(allItems);
             }
