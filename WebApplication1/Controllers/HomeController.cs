@@ -4,15 +4,38 @@ using System.Web.Mvc;
 using VideoModel;
 using DataAccess;
 using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MyYouTube.Controllers
 {
     public class HomeController : Controller
     {
+        #region default nocode actions
         public ActionResult Index()
         {
             return View();
         }
+
+        public ActionResult Search()
+        {
+            ViewBag.Message = "Find what you're looking for";
+
+            return View();
+        }
+        public ActionResult Help()
+        {
+            ViewBag.Message = "Help for users";
+
+            return View();
+        }
+        public ActionResult HelpTech()
+        {
+            ViewBag.Message = "Help for techies";
+
+            return View();
+        }
+        #endregion
 
         public ActionResult Details(string id)
         {
@@ -41,63 +64,78 @@ namespace MyYouTube.Controllers
 
             using (var context = new VideoContext())
             {
-                Video newvid = context.Videos.Where(x => x.Id == id).FirstOrDefault();
-                Models.VideoViewModel thisitem = new Models.VideoViewModel()
+                Video thisRecord = context.Videos.Where(x => x.Id == id).FirstOrDefault();
+                Models.VideoViewModel thisModel = new Models.VideoViewModel()
                 {
-                    ChannelTitle = newvid.ChannelTitle,
-                    Comment = newvid.Comment,
-                    Dislikes = newvid.Dislikes,
-                    Likes = newvid.Likes,
-                    Rating = newvid.Rating,
-                    Title = newvid.Title,
-                    Id = newvid.Id,
-                    EmbedURL = newvid.Id,
+                    ChannelTitle = thisRecord.ChannelTitle,
+                    Comment = thisRecord.Comment,
+                    Dislikes = thisRecord.Dislikes,
+                    Likes = thisRecord.Likes,
+                    Rating = thisRecord.Rating,
+                    Title = thisRecord.Title,
+                    Id = thisRecord.Id,
+                    EmbedURL = thisRecord.Id,
                     Favorite = true,
                     PublishDate = DateTime.Today.ToShortDateString()
                 };
                 
-                return View(thisitem);
+                return View(thisModel);
             }
         }
 
-
-        public ActionResult Adder(string id)
+        public ActionResult Adder(string sender)
         {
-            ViewBag.Message = "Newly added video:";
-
-            var newvid = new Video
+            try
             {
-                Id = id,
-                ChannelTitle = "Newvid",
-                Comment = "Comment",
-                Dislikes = 10,
-                Likes = 11,
-                PublishDate = DateTime.Now.AddMonths(-8).ToShortDateString(),
-                Rating = "*****",
-                Title = "Newtitle"
-            };
+                JObject deserializedJson = (JObject)JsonConvert.DeserializeObject(sender.Replace('~', '"'));
+                Models.VideoViewModel incomingModel = new Models.VideoViewModel();
 
-            using (var context = new VideoContext())
+                int i = 0;
+                foreach (JToken token in deserializedJson.Children())
+                {
+                    if (token is JProperty)
+                    {
+                        var prop = token as JProperty;
+                        if (i == 0) incomingModel.Id = prop.Value.ToString();
+                        if (i == 1) incomingModel.Title = prop.Value.ToString();
+                        if (i == 2) incomingModel.ChannelTitle = prop.Value.ToString();
+                        if (i == 3) incomingModel.Rating = prop.Value.ToString();
+                        if (i == 4) incomingModel.Comment = prop.Value.ToString();
+                        if (i == 5) incomingModel.PublishDate = prop.Value.ToString();
+                        if (i == 6) incomingModel.Likes = Convert.ToInt32(prop.Value.ToString());
+                        if (i == 7) incomingModel.Dislikes = Convert.ToInt32(prop.Value.ToString());
+                        i++;
+                    }
+                }
+
+                var newvid = new Video
+                {
+                    Id = incomingModel.Id,
+                    ChannelTitle = incomingModel.ChannelTitle,
+                    Comment = incomingModel.Comment,
+                    Dislikes = incomingModel.Dislikes,
+                    Likes = incomingModel.Likes,
+                    PublishDate = incomingModel.PublishDate,
+                    Rating = incomingModel.Rating,
+                    Title = incomingModel.Title
+                };
+
+                using (var context = new VideoContext())
+                {
+                    context.Videos.Add(newvid);
+                    context.SaveChanges();
+                }
+
+                return RedirectToAction("Details", incomingModel);
+            }
+            catch (Exception e )
             {
-                context.Videos.Add(newvid);
-                context.SaveChanges();
+                string err = e.ToString();
             }
 
-            MyYouTube.Models.VideoViewModel model = new Models.VideoViewModel()
-            {
-                ChannelTitle = newvid.ChannelTitle,
-                Comment = newvid.Comment,
-                Dislikes = newvid.Dislikes,
-                Likes = newvid.Likes,
-                Rating = "*****",
-                Title  = "Nyan cat 10 hour",
-                Id = string.Empty,
-                EmbedURL = id,  
-                Favorite = true,
-                PublishDate = DateTime.Today.ToShortDateString()
-            };
-            return RedirectToAction("Details",model);
+            return RedirectToAction("Index", "Home");
         }
+
         public ActionResult Deleter(string id)
         {
             using (var context = new VideoContext())
@@ -113,12 +151,6 @@ namespace MyYouTube.Controllers
             return RedirectToAction("Favorites");
         }
 
-        public ActionResult Search()
-        {
-            ViewBag.Message = "Find what you're looking for";
-
-            return View();
-        }
 
         public ActionResult Favorites()
         {
@@ -147,18 +179,5 @@ namespace MyYouTube.Controllers
                 return View(allItems);
             }
         }
-
-        public ActionResult Help()
-        {
-            ViewBag.Message = "Help for users";
-
-            return View();
-        }
-        public ActionResult HelpTech()
-        {
-            ViewBag.Message = "Help for techies";
-
-            return View();
-        }
-    }
+   }
 }
