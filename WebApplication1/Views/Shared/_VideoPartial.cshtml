@@ -1,10 +1,10 @@
 ﻿<tr>
-    <td>@Model.VideoTitle</td>  
-    <td>@Model.RatingString</td>
-    <td>@Model.FavoriteString</td>
-    <td>@Model.LikeCount.ToString()</td>
-    <td>@Model.DislikeCount.ToString()</td>
-    <td>@Model.Channel</td>
-    <td>@Model.Comments</td>
-    <td>@Model.DateString</td>
+    <td>@Model.Title</td>  
+    <td>@Model.Rating</td>
+    <td><a href="@Url.Action("Deleter","Home",new { id = @Model.Id })">Remove</a></td>
+    <td>@Model.Likes.ToString()</td>
+    <td>@Model.Dislikes.ToString()</td>
+    <td>@Model.ChannelTitle</td>
+    <td>@Model.Comment</td>
+    <td>@Model.PublishDateString</td>
 </tr>

@@ -65,7 +65,7 @@ function makeViewLink(videoId) {
     return '<a href="https://www.youtube.com/watch?v=' + videoId + '"  target="_blank" >View</a>';
 }
 function makeFaveLink(videoId) {
-    return '<a href="/home/Details/'+videoId+'">Fave It</a>';
+    return '<a href="/home/Adder/'+videoId+'">Fave It</a>';
 }
 
 function init() {
