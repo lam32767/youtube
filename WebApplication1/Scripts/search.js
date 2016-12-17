@@ -36,6 +36,26 @@
                     item.id.videoId
                 ];
                 console.log(makeFaveLinkFromItem(item));
+
+              
+                //gapi.client.youtube.videos.listVideos('wZZ7oFKsKzY','statistics',)
+                //$videosResponse = $youtube->videos->listVideos('hoe9xW7vnpA','statistics',array(
+                //'id' => 'hoe9xW7vnpA',
+                //'part' => 'statistics', 
+                //));
+
+                //$videos = '';
+
+                //foreach ($videosResponse['items'] as $videoResult) {
+                //echo "likeCounts: ";
+                //echo $videoResult['statistics']['likeCount'];
+                //echo "<br />dislikeCounts: ";
+                //echo $videoResult['statistics']['dislikeCount'];
+                //}
+
+
+
+
             });
 
             $('#theTable').DataTable({
