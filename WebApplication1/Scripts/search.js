@@ -39,7 +39,7 @@
             });
 
             $('#theTable').DataTable({
-                "iDisplayLength": 25,
+                "iDisplayLength": 10,
                 "bJQueryUI": true,
                 "aaSorting": [],
                 "data": dataset,

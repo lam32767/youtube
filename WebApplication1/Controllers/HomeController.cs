@@ -11,6 +11,8 @@ namespace MyYouTube.Controllers
 {
     public class HomeController : Controller
     {
+        private const string NyanCatVideoId = "wZZ7oFKsKzY";
+
         #region default nocode actions
         public ActionResult Index()
         {
@@ -39,90 +41,31 @@ namespace MyYouTube.Controllers
 
         public ActionResult Details(string id)
         {
-            ViewBag.Message = "View a video on your favorites";
-
-            bool defaultVid = (string.IsNullOrEmpty(id));
-            string thisId = defaultVid ? "wZZ7oFKsKzY" : id;
-
-            if (defaultVid)
+            if (string.IsNullOrEmpty(id))
             {
-                MyYouTube.Models.VideoViewModel model = new Models.VideoViewModel()
-                {
-                    ChannelTitle = "Default",
-                    Comment = "Default",
-                    Dislikes = 3,
-                    Likes = 1000000,
-                    Rating = "*****",
-                    Title = "Nyan cat 10 hour",
-                    Id = string.Empty,
-                    EmbedURL = thisId,
-                    Favorite = true,
-                    PublishDate = DateTime.Today.ToShortDateString()
-                };
-                return View(model);
+                ViewBag.Message = "View the default nyan cat video";
+                return View(Mapper.MakeDefaultModel(NyanCatVideoId));
             }
-
-            using (var context = new VideoContext())
-            {
-                Video thisRecord = context.Videos.Where(x => x.Id == id).FirstOrDefault();
-                Models.VideoViewModel thisModel = new Models.VideoViewModel()
+            else
+                using (var context = new VideoContext())
                 {
-                    ChannelTitle = thisRecord.ChannelTitle,
-                    Comment = thisRecord.Comment,
-                    Dislikes = thisRecord.Dislikes,
-                    Likes = thisRecord.Likes,
-                    Rating = thisRecord.Rating,
-                    Title = thisRecord.Title,
-                    Id = thisRecord.Id,
-                    EmbedURL = thisRecord.Id,
-                    Favorite = true,
-                    PublishDate = DateTime.Today.ToShortDateString()
-                };
-                
-                return View(thisModel);
-            }
+                    Video thisRecord = context.Videos.Where(x => x.Id == id).FirstOrDefault();
+                    Models.VideoViewModel thisModel = Mapper.MakeModelFromRecord(thisRecord);
+                    ViewBag.Message = "View a video from your favorites";
+                    return View(thisModel);
+                }
         }
+
 
         public ActionResult Adder(string sender)
         {
             try
             {
-                JObject deserializedJson = (JObject)JsonConvert.DeserializeObject(sender.Replace('~', '"'));
-                Models.VideoViewModel incomingModel = new Models.VideoViewModel();
-
-                int i = 0;
-                foreach (JToken token in deserializedJson.Children())
-                {
-                    if (token is JProperty)
-                    {
-                        var prop = token as JProperty;
-                        if (i == 0) incomingModel.Id = prop.Value.ToString();
-                        if (i == 1) incomingModel.Title = prop.Value.ToString();
-                        if (i == 2) incomingModel.ChannelTitle = prop.Value.ToString();
-                        if (i == 3) incomingModel.Rating = prop.Value.ToString();
-                        if (i == 4) incomingModel.Comment = prop.Value.ToString();
-                        if (i == 5) incomingModel.PublishDate = prop.Value.ToString();
-                        if (i == 6) incomingModel.Likes = Convert.ToInt32(prop.Value.ToString());
-                        if (i == 7) incomingModel.Dislikes = Convert.ToInt32(prop.Value.ToString());
-                        i++;
-                    }
-                }
-
-                var newvid = new Video
-                {
-                    Id = incomingModel.Id,
-                    ChannelTitle = incomingModel.ChannelTitle,
-                    Comment = incomingModel.Comment,
-                    Dislikes = incomingModel.Dislikes,
-                    Likes = incomingModel.Likes,
-                    PublishDate = incomingModel.PublishDate,
-                    Rating = incomingModel.Rating,
-                    Title = incomingModel.Title
-                };
+                Models.VideoViewModel incomingModel = Mapper.MakeModelFromString(sender);
 
                 using (var context = new VideoContext())
                 {
-                    context.Videos.Add(newvid);
+                    context.Videos.Add(Mapper.MakeRecordFromViewModel(incomingModel));
                     context.SaveChanges();
                 }
 
@@ -162,20 +105,7 @@ namespace MyYouTube.Controllers
                                          .Videos
                                          .Where(x => x.Id != string.Empty)
                                          .ToList())
-                    allItems.Add(new Models.VideoViewModel()
-                    {
-                        ChannelTitle = eachItem.ChannelTitle,
-                        Comment = eachItem.Comment,
-                        Dislikes = eachItem.Dislikes,
-                        Likes = eachItem.Likes,
-                        Rating = eachItem.Rating,
-                        Title = eachItem.Title,
-                        Id = eachItem.Id,
-                        EmbedURL = eachItem.Id,  
-                        Favorite = true,
-                        PublishDate = DateTime.Today.ToShortDateString()
-                    }
-                );
+                    allItems.Add(Mapper.MakeModelFromRecord(eachItem));
                 return View(allItems);
             }
         }
