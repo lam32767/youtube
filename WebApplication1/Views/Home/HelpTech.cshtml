@@ -3,408 +3,406 @@
 }
 <br />
 <br />
-<div class="row">
 
-    <div class=WordSection1>
+<div class=WordSection1>
 
-        <p class=MsoNoSpacing>
-            The YouTube Data API provides access to YouTube. In this
-            assignment you will write an MVC web application which uses the YouTube data
-            api to provide a user interface for search and video details. Please use
-            ASP.Net MVC in this project, but outside of that feel free to use any
-            frameworks or libraries you wish to accomplish this task. If you choose to use
-            code generators or a boilerplate project as a starting point, please make sure
-            we can tell which parts of the project are yours and which are generated or
-            from the boilerplate. Descriptions in the readme and a range of commits helps
-            with this.
-        </p>
+    <p class=MsoNoSpacing>
+        The YouTube Data API provides access to YouTube. In this
+        assignment you will write an MVC web application which uses the YouTube data
+        api to provide a user interface for search and video details. Please use
+        ASP.Net MVC in this project, but outside of that feel free to use any
+        frameworks or libraries you wish to accomplish this task. If you choose to use
+        code generators or a boilerplate project as a starting point, please make sure
+        we can tell which parts of the project are yours and which are generated or from
+        the boilerplate. Descriptions in the readme and a range of commits helps with
+        this.
+    </p>
 
-        <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+    <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                I started by a
-                standard Visual Studio create new mvc web project, and added my controller
-                action links and menu items to Home\Index. It is a fine line to decide to move
-                the controller functionality to a separate project; this decision depends on
-                the organization.<span style='mso-spacerun:yes'>  </span>The web shows an equal
-                number of commentaries for both sides.<span style='mso-spacerun:yes'>
-                </span>Microsoft’s decision to keep it in the MyYouTube project will remain
-                as-is. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            I started by a
+            standard Visual Studio create new mvc web project, and added my controller
+            action links and menu items to Home\Index. In order to do IoC testing of the
+            controller, it must be moved to its own project. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></i></p>
+    <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></i></p>
 
-        <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'>Addins I utilized:<o:p></o:p></i></p>
+    <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'>Addins I utilized:<o:p></o:p></i></p>
 
-        <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'>JQuery 1.12.4,<o:p></o:p></i></p>
+    <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'>JQuery 1.12.4,<o:p></o:p></i></p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                Javascript Data
-                Tables:
-            </i><a href="https://datatables.net/">
-                <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Javascript Data
+            Tables:
+        </i><a href="https://datatables.net/">
+            <i style='mso-bidi-font-style:
 normal'>https://datatables.net/</i>
-            </a><i style='mso-bidi-font-style:normal'><o:p></o:p></i>
-        </p>
+        </a><i style='mso-bidi-font-style:normal'><o:p></o:p></i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                Newtonsoft Json
-                9.0.1<o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Newtonsoft Json
+            9.0.1<o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                Entity Framework
-                6.1.3<o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Entity Framework
+            6.1.3<o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+    <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
 
-        <p class=MsoNoSpacing>
-            Your application should consist of the following
-            views/features:
-        </p>
+    <p class=MsoNoSpacing>
+        Your application should consist of the following
+        views/features:
+    </p>
 
-        <p class=MsoNoSpacing><span style='font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p></span></p>
+    <p class=MsoNoSpacing><span style='font-family:"Times New Roman","serif"'><o:p>&nbsp;</o:p></span></p>
 
-        <p class=MsoNoSpacing>
-            <b><span style='font-size:18.0pt;color:black'>Search</span></b><b>
-                <span style='font-size:18.0pt;font-family:"Times New Roman","serif";color:black'><o:p></o:p></span>
-            </b>
-        </p>
+    <p class=MsoNoSpacing>
+        <b><span style='font-size:18.0pt;color:black'>Search</span></b><b>
+            <span style='font-size:18.0pt;font-family:"Times New Roman","serif";color:black'><o:p></o:p></span>
+        </b>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='font-size:10.0pt;font-family:Symbol;
+    <p class=MsoNoSpacing>
+        <span style='font-size:10.0pt;font-family:Symbol;
 mso-bidi-font-family:Calibri'>·</span><span style='font-size:7.0pt;font-family:
 "Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Search
-            by keyword
-        </p>
+        by keyword
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                My interpretation:<span style='mso-spacerun:yes'></span>Search YouTube in the same manner as we would
-                on the YouTube web site, in the search box; in other words enter the words to
-                search on and click the button. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            My interpretation:<span style='mso-spacerun:yes'></span>Search YouTube in the same manner as we would
+            on the YouTube web site, in the search box; in other words enter the words to
+            search on and click the button. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
+    <p class=MsoNoSpacing>
+        <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
 Calibri;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span>
-        </p>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='font-size:10.0pt;font-family:Symbol;
+    <p class=MsoNoSpacing>
+        <span style='font-size:10.0pt;font-family:Symbol;
 mso-bidi-font-family:Calibri'>·</span><span style='font-size:7.0pt;font-family:
 "Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Sort
-            by date, rating and relevance
-        </p>
+        by date, rating and relevance
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                Interpretation:
-                “date” = date the video was posted.<span style='mso-spacerun:yes'>
-                </span>“rating” = I don’t know. “relevance” = exactly what order the videos
-                come up in the search results.<span style='mso-spacerun:yes'>  </span>Compare
-                my output to what the search would show on youtube.com; that’s what order the
-                records come up. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Interpretation:
+            “date” = date the video was posted.<span style='mso-spacerun:yes'>
+            </span>“rating” = from you tube data model. “relevance” = exactly what order
+            the videos come up in the search results.<span style='mso-spacerun:yes'>
+            </span>Compare my output to what the search would show on youtube.com; that’s
+            what order the records come up. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></i></p>
+    <p class=MsoNoSpacing><i style='mso-bidi-font-style:normal'><o:p>&nbsp;</o:p></i></p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                I added a link to
-                “View”, which will just open the video in youtube.com on a new tab in the
-                browser.<span style='mso-spacerun:yes'>  </span>The link “Fave it” will add
-                that video to your favorites.<span style='mso-spacerun:yes'>  </span>I pass a
-                json string as the only parameter to Home\Adder, which will persist it to the
-                database.<span style='mso-spacerun:yes'>  </span>I realize a hacker could do
-                malicious query string alterations if he viewed what I do on Fiddler and
-                engineered it.<o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            I added a link to
+            “View”, which will just open the video in youtube.com on a new tab in the
+            browser.<span style='mso-spacerun:yes'>  </span>The link “Fave it” will add
+            that video to your favorites.<span style='mso-spacerun:yes'>  </span>I pass a
+            json string as the only parameter to Home\Adder, which will persist it to the
+            database.<span style='mso-spacerun:yes'>  </span>I realize a hacker could do
+            malicious query string alterations by viewing, with Fiddler, what I pass.<o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                <span style='mso-spacerun:yes'></span><o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            <span style='mso-spacerun:yes'></span><o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <b style='mso-bidi-font-weight:normal'>
-                <i style='mso-bidi-font-style:normal'>Wish list for next version:</i>
-            </b><i style='mso-bidi-font-style:normal'>
-                <span style='mso-spacerun:yes'>
-                </span>Refactor the &lt;a href=”home\adder\?parm=jsonstring”&gt;<span style='mso-spacerun:yes'></span>to a true Ajax post click handler.<span style='mso-spacerun:yes'></span>I would have to keep track of indexes on the
-                array, or make a unique #id for each array item, so my jquery click selector
-                would bring in the proper data, and build a $.ajax call.<span style='mso-spacerun:yes'></span>Once I do a real ajax call, I would just send
-                my json string, and home\adder would be a [HttpPost], and its param would be an
-                instance of my view model, and no need for json deserialize. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <b style='mso-bidi-font-weight:normal'>
+            <i style='mso-bidi-font-style:normal'>Wish list for next version:</i>
+        </b><i style='mso-bidi-font-style:normal'>
+            <span style='mso-spacerun:yes'>
+            </span>Refactor the &lt;a href=”home\adder\?parm=jsonstring”&gt;<span style='mso-spacerun:yes'></span>to a true Ajax post click handler.<span style='mso-spacerun:yes'></span>I would have to keep track of indexes on the
+            array, or make a unique #id for each array item, so my jquery click selector
+            would bring in the proper data, and build a $.ajax call.<span style='mso-spacerun:yes'></span>Once I do a real ajax call, I would just send
+            my json string, and home\adder would be a [HttpPost], and its param would be an
+            instance of my view model, and no need for json deserialize. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+    <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
 
-        <p class=MsoNoSpacing>
-            <b>
-                <span style='font-size:18.0pt;color:black'>
-                    Video
-                    Details
-                </span>
-            </b><b>
-                <span style='font-size:18.0pt;font-family:"Times New Roman","serif";
+    <p class=MsoNoSpacing>
+        <b>
+            <span style='font-size:18.0pt;color:black'>
+                Video
+                Details
+            </span>
+        </b><b>
+            <span style='font-size:18.0pt;font-family:"Times New Roman","serif";
 color:black'><o:p></o:p></span>
-            </b>
-        </p>
+        </b>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='font-size:10.0pt;font-family:Symbol;
+    <p class=MsoNoSpacing>
+        <span style='font-size:10.0pt;font-family:Symbol;
 mso-bidi-font-family:Calibri'>·</span><span style='font-size:7.0pt;font-family:
 "Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Video
-            player
-        </p>
+        player
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.5in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.5in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                I use a fixed iframe to show the video.<span style='mso-spacerun:yes'>
-                </span>You may visit the page Home\Details or Home\Details\string where
-                [string] is the unique you tube video id that all you tube videos use to
-                identify.<span style='mso-spacerun:yes'>   </span>If you do not specify a
-                string, this page will default to video “
-            </i><i style='mso-bidi-font-style:
+            I use a fixed iframe to show the video.<span style='mso-spacerun:yes'>
+            </span>You may visit the page Home\Details or Home\Details\string where
+            [string] is the unique you tube video id that all you tube videos use to
+            identify.<span style='mso-spacerun:yes'>   </span>If you do not specify a
+            string, this page will default to video “
+        </i><i style='mso-bidi-font-style:
 normal'>
-                <span style='font-size:9.5pt;font-family:Consolas;mso-bidi-font-family:
+            <span style='font-size:9.5pt;font-family:Consolas;mso-bidi-font-family:
 Consolas;color:#A31515'>H2KkiRbDZyc</span>” which is the 10 hour nyan cat
-                video. <span style='mso-spacerun:yes'>  </span>Next version wishlist: research
-                how to do a native html5 viewer.
-            </i><i style='mso-bidi-font-style:normal'>
-                <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
+            video. <span style='mso-spacerun:yes'>  </span>Wish list for next version: research
+            how to do a native html5 viewer.
+        </i><i style='mso-bidi-font-style:normal'>
+            <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:Calibri;mso-bidi-font-family:
 Calibri'><o:p></o:p></span>
-            </i>
-        </p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='font-size:10.0pt;font-family:Symbol;
+    <p class=MsoNoSpacing>
+        <span style='font-size:10.0pt;font-family:Symbol;
 mso-bidi-font-family:Calibri'>·</span><span style='font-size:7.0pt;font-family:
 "Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Meta
-            information like comments, likes, dislikes, channel
-        </p>
+        information like comments, likes, dislikes, channel
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.5in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.5in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                The information shown here will be what I persist to the database at
-                the time the video is added to favorites. Therefore, if more likes / dislikes /
-                comments are added to the real world of you tube after you favorite the video,
-                the latest information will not show on this page.<o:p></o:p>
-            </i>
-        </p>
+            The information shown here will be what I persist to the database at
+            the time the video is added to favorites. Therefore, if more likes / dislikes /
+            comments are added to the outside world of you tube after you favorite the
+            video, the latest information will not show on this page.<o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.5in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.5in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                A video can have thousands of user comments.<span style='mso-spacerun:yes'></span>In the interest of demonstrating the
-                functionality of the whole system, and not digging too deep into individual
-                details, I plan to only display the first comment.<span style='mso-spacerun:yes'></span>Making an open-ended (1..N) list of all
-                comments is doable as a next sprint item: <span style='mso-spacerun:yes'></span>a new one to many relationship in the database
-                and the view model.<span style='mso-spacerun:yes'>  </span><o:p></o:p>
-            </i>
-        </p>
+            A video can have thousands of user comments.<span style='mso-spacerun:yes'></span>In the interest of demonstrating the
+            functionality of the whole system, and not digging too deep into individual
+            details, I plan to only display the first comment.<span style='mso-spacerun:yes'></span>Making an open-ended (1..n) list of all
+            comments is doable as a next sprint item: <span style='mso-spacerun:yes'></span>a new one to many relationship in the database
+            and the view model.<span style='mso-spacerun:yes'>  </span><o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.5in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.5in'>
+        <i style='mso-bidi-font-style:
 normal'><o:p>&nbsp;</o:p></i>
-        </p>
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.5in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.5in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                The look and feel of the meta data is identical to the Favorites page:
-                I use the same Html.Partial, and javascript datatables with a size of “1” to
-                display the data.<span style='mso-spacerun:yes'>  </span>A next sprint item could
-                refactor this display of one record to have the exact same styling as the data
-                tables, without bringing in the whole functionality [sorting, searching,
-                paging] which are all redundant for a one record table.
-            </i>
-        </p>
+            The look and feel of the meta data is identical to the Favorites page:
+            I use the same Html.Partial, and javascript datatables with a size of “1” to
+            display the data.<span style='mso-spacerun:yes'>  </span>A next sprint item could
+            refactor this display of one record to have the exact same styling as the data
+            tables, without bringing in the whole functionality [sorting, searching,
+            paging] which are all redundant for a one record table.
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
+    <p class=MsoNoSpacing>
+        <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
 Calibri;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span>
-        </p>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='font-size:10.0pt;font-family:Symbol;
+    <p class=MsoNoSpacing>
+        <span style='font-size:10.0pt;font-family:Symbol;
 mso-bidi-font-family:Calibri'>·</span><span style='font-size:7.0pt;font-family:
 "Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Ability
-            to add/remove from favorites (see below)
-        </p>
+        to add/remove from favorites (see below)
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.5in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.5in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                In the search results window, I added a link “Fave it” which will add
-                that video to your favorites. <o:p></o:p>
-            </i>
-        </p>
+            In the search results window, I added a link “Fave it” which will add
+            that video to your favorites. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.5in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.5in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                In the “Favorites” page, I added a link “Remove” which will remove that
-                video from your favorites.<o:p></o:p>
-            </i>
-        </p>
+            In the “Favorites” page, I added a link “Remove” which will remove that
+            video from your favorites.<o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
+    <p class=MsoNoSpacing>
+        <span style='mso-ascii-font-family:Calibri;mso-hansi-font-family:
 Calibri;mso-bidi-font-family:Calibri'><o:p>&nbsp;</o:p></span>
-        </p>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <b>
-                <span style='font-size:18.0pt;color:black'>
-                    Favorite
-                    Videos
-                </span>
-            </b><b>
-                <span style='font-size:18.0pt;font-family:"Times New Roman","serif";
+    <p class=MsoNoSpacing>
+        <b>
+            <span style='font-size:18.0pt;color:black'>
+                Favorite
+                Videos
+            </span>
+        </b><b>
+            <span style='font-size:18.0pt;font-family:"Times New Roman","serif";
 color:black'><o:p></o:p></span>
-            </b>
-        </p>
+        </b>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <span style='font-size:10.0pt;font-family:Symbol;
+    <p class=MsoNoSpacing>
+        <span style='font-size:10.0pt;font-family:Symbol;
 mso-bidi-font-family:Calibri'>·</span><span style='font-size:7.0pt;font-family:
 "Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The
-            list of videos the user has favorited
-        </p>
+        list of videos the user has favorited
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.25in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.25in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                The “View” link will bring up the selected record on the “Details” web
-                page.<span style='mso-spacerun:yes'>   </span>The “Remove” link will delete
-                that favorite from the list of saved favorites. <o:p></o:p>
-            </i>
-        </p>
+            The “View” link will bring up the selected record on the “Details” web
+            page.<span style='mso-spacerun:yes'>   </span>The “Remove” link will delete
+            that favorite from the list of saved favorites. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+    <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
 
-        <p class=MsoNoSpacing style='margin-left:.25in;text-indent:-.25in;mso-list:
+    <p class=MsoNoSpacing style='margin-left:.25in;text-indent:-.25in;mso-list:
 l1 level1 lfo2'>
-            <![if !supportLists]><span style='font-family:Symbol;
+        <![if !supportLists]><span style='font-family:Symbol;
 mso-fareast-font-family:Symbol;mso-bidi-font-family:Symbol'>
-                <span style='mso-list:Ignore'>
-                    ·<span style='font:7.0pt "Times New Roman"'>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </span>
+            <span style='mso-list:Ignore'>
+                ·<span style='font:7.0pt "Times New Roman"'>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
-            </span><![endif]>Implement your own data storage system
-        </p>
+            </span>
+        </span><![endif]>Implement your own data storage system
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.25in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.25in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                Use enclosed script Create_youtube_db.sql to create a sql 2014 db.<span style='mso-spacerun:yes'></span>I could have set the compatibility level to
-                2008 or lower to accommodate the target system, but believe sql 2014 is
-                conservatively low enough.<span style='mso-spacerun:yes'>  </span><o:p></o:p>
-            </i>
-        </p>
+            Use enclosed script Create_youtube_db.sql to create a sql 2014 db.<span style='mso-spacerun:yes'></span>I could have set the compatibility level to
+            2008 or lower to accommodate the target system, but believe sql 2014 is
+            conservatively low enough.<span style='mso-spacerun:yes'>  </span><o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.25in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.25in'>
+        <i style='mso-bidi-font-style:
 normal'>Because all you tube videos use a string of random characters like “</i><i style='mso-bidi-font-style:normal'>
-                <span style='font-size:9.5pt;font-family:
+            <span style='font-size:9.5pt;font-family:
 Consolas;mso-bidi-font-family:Consolas;color:#A31515'>H2KkiRbDZyc</span>” to
-                uniquely identify videos, I use that as the primary key. Because the whole
-                system is very simple [one table], just standard default non clustered primary
-                key index is the only “optimization” to perform.<o:p></o:p>
-            </i>
-        </p>
+            uniquely identify videos, I use that as the primary key. Because the whole
+            system is very simple [one table], just standard default non clustered primary
+            key index is the only “optimization” to perform.<o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing style='margin-left:.25in'>
-            <i style='mso-bidi-font-style:
+    <p class=MsoNoSpacing style='margin-left:.25in'>
+        <i style='mso-bidi-font-style:
 normal'>
-                The connection string in the system says server = . which means same
-                server as the web server. This is not best practice: have the database server
-                on the application server. In this case, as a demo app, it is acceptable. <o:p></o:p>
-            </i>
-        </p>
+            The connection string in the system says server = . which means same server
+            as the web server. This is not best practice: have the database server on the
+            application server. In this case, as a demo app, it is acceptable. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+    <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
 
-        <p class=MsoNoSpacing>
-            Try not to get bogged down in the look and feel of the
-            application - we’re more interested in how you organize the project and which
-            tools (patterns, libraries, frameworks, dependency management, etc.) you choose
-            to use.
-        </p>
+    <p class=MsoNoSpacing>
+        Try not to get bogged down in the look and feel of the
+        application - we’re more interested in how you organize the project and which
+        tools (patterns, libraries, frameworks, dependency management, etc.) you choose
+        to use.
+    </p>
 
-        <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+    <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
 
-        <p class=MsoNoSpacing>
-            When you’re finished, please put your project in a
-            repository on either Github or Bitbucket and send us a link. We’ll then do a
-            pair programming session where we’ll have some questions for you about your
-            code and possibly make some additions to it.
-        </p>
+    <p class=MsoNoSpacing>
+        When you’re finished, please put your project in a
+        repository on either Github or Bitbucket and send us a link. We’ll then do a
+        pair programming session where we’ll have some questions for you about your
+        code and possibly make some additions to it.
+    </p>
 
-        <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
+    <p class=MsoNoSpacing><o:p>&nbsp;</o:p></p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                Known issues / next
-                sprint items to fix: <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Known issues / next
+            sprint items to fix: <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                I could not get
-                bundling to work. I had to drag jquery and datatables onto each individual
-                .cshtml file as an include to make it work. I know properly adding the css and
-                js files into the bundle config.cs will make it transparent, and efficient. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            I could not get
+            bundling to work. I had to drag jquery and datatables onto each individual
+            .cshtml file as an include to make it work. I know properly adding the css and
+            js files into the bundle config.cs will make it transparent, and efficient. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                Some add to
-                favorites abort.<span style='mso-spacerun:yes'>  </span>I believe it is because
-                of some columns are not populated, and are undefined, even though I check all
-                columns like so: if (Title === undefined) and populate them with default
-                values. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Some add to
+            favorites abort.<span style='mso-spacerun:yes'>  </span>I believe it is because
+            of some columns are not populated, and are undefined, even though I check all
+            columns like so: if (Title === undefined) and populate them with default
+            values. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                Doing search twice
-                on the search page causes a warning popup, and the subsequent searches do
-                nothing.<span style='mso-spacerun:yes'>  </span>Workaround: leave the search
-                page, come back, and all is well. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Doing search twice
+            on the search page causes a warning popup, and the subsequent searches do
+            nothing.<span style='mso-spacerun:yes'>  </span>Workaround: leave the search
+            page, come back, and all is well. <o:p></o:p>
+        </i>
+    </p>
 
-        <p class=MsoNoSpacing>
-            <i style='mso-bidi-font-style:normal'>
-                More youtube api
-                work to get the ancillary data not provided in first sprint:<span style='mso-spacerun:yes'></span>comments, likes, dislikes, etc. First sprint
-                currently shows title, channel title, date published. <o:p></o:p>
-            </i>
-        </p>
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            More youtube api
+            work to get the ancillary data not provided in first sprint:<span style='mso-spacerun:yes'></span>comments, likes, dislikes, etc. First sprint
+            currently shows title, channel title, date published. <o:p></o:p>
+        </i>
+    </p>
 
-    </div>
-
+    <p class=MsoNoSpacing>
+        <i style='mso-bidi-font-style:normal'>
+            Change all
+            javascript files to the minified js before deploying to production!<o:p></o:p>
+        </i>
+    </p>
 
 </div>
