@@ -11,8 +11,6 @@
         });
 
         req.execute(function (resp) {
-            //console.log(resp);
-            //alert(resp.result.items.length);
             $("#searchresults").append(resp.result.items.length.toString()).append(" items found<br><br>");
 
             var emptytab = "<table id='theTable' class='display'></table>";
@@ -21,7 +19,6 @@
             var pages = resp.result;
             var dataset = [];
             $.each(pages.items, function (index, item) {
-                //console.log(item);
                 dataset[index] = [
                     index + 1,
                     item.snippet.title,
@@ -35,27 +32,6 @@
                     makeViewLink(item.id.videoId),
                     item.id.videoId
                 ];
-                console.log(makeFaveLinkFromItem(item));
-
-              
-                //gapi.client.youtube.videos.listVideos('wZZ7oFKsKzY','statistics',)
-                //$videosResponse = $youtube->videos->listVideos('hoe9xW7vnpA','statistics',array(
-                //'id' => 'hoe9xW7vnpA',
-                //'part' => 'statistics', 
-                //));
-
-                //$videos = '';
-
-                //foreach ($videosResponse['items'] as $videoResult) {
-                //echo "likeCounts: ";
-                //echo $videoResult['statistics']['likeCount'];
-                //echo "<br />dislikeCounts: ";
-                //echo $videoResult['statistics']['dislikeCount'];
-                //}
-
-
-
-
             });
 
             $('#theTable').DataTable({
@@ -117,7 +93,6 @@ function makeFaveLinkFromItem(item, title, channelTitle, publishedAt) {
     var senderstring = JSON.stringify(sender);
     senderstring = senderstring.replace(/"/g, '~');
     var retval = '<a href="/home/Adder/?sender=' + senderstring + '">Fave It</a>';
-    console.log('Retval ' + retval);
     return retval;
 }
 
