@@ -12,10 +12,8 @@ namespace MyYouTube.Controllers
     public class HomeController : Controller
     {
         public HomeController() { }
-        public HomeController(IVideoContext context)
-        {
-            db = context;
-        }
+        public HomeController(IVideoContext context)  {   db = context;   }
+
         private const string NyanCatVideoId = "wZZ7oFKsKzY";
         private IVideoContext db = new VideoContext();
 
