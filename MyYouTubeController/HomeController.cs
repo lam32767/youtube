@@ -98,6 +98,7 @@ namespace MyYouTube.Controllers
             catch (Exception e)
             {
                 string err = e.ToString();
+                _DBContext.LogError(e);
             }
 
             /////if we fall down to here something didn't work
@@ -127,6 +128,7 @@ namespace MyYouTube.Controllers
             catch (Exception e)
             {
                 string err = e.ToString();
+                _DBContext.LogError(e);
             }
 
             ViewBag.Message = "Here's what you liked";
@@ -152,6 +154,7 @@ namespace MyYouTube.Controllers
             catch (Exception e)
             {
                 string err = e.ToString();
+                _DBContext.LogError(e);
             }
 
             ////if we fall down to here, something didn't work
@@ -177,6 +180,7 @@ namespace MyYouTube.Controllers
             catch (Exception e)
             {
                 string err = e.ToString();
+                _DBContext.LogError(e);
             }
             return RedirectToAction("Favorites");
         }

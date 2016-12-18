@@ -23,5 +23,14 @@ namespace DataAccess
         {
             return Videos.Find(id);
         }
+
+        /// <summary>
+        /// Todo: Implement this.  Event log?  A table? A flat file? 
+        /// </summary>
+        /// <param name="e">System Exception</param>
+        public virtual void LogError (System.Exception e)
+        {
+
+        }
     }
 }

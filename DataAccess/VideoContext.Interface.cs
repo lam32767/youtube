@@ -15,5 +15,6 @@ namespace DataAccess
         int SaveChanges();
         IQueryable<Video> GetVideos();
         Video FindVideoById(string id);
+        void LogError(System.Exception e);
     }
 }
