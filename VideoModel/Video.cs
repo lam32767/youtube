@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+
 namespace VideoModel
 {
     public class Video
@@ -10,6 +11,6 @@ namespace VideoModel
         public int Dislikes { get; set; }
         public string ChannelTitle { get; set; }
         public string Comment { get; set; }
-        public string PublishDate { get; set; }
+        public DateTime PublishDate { get; set; }
     }
 }

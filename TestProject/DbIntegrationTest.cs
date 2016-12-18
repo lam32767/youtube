@@ -22,18 +22,18 @@ namespace TestProject
         }
 
         [TestMethod]
-        public void DeleteNyanCat()
+        public void DeleteDefaultHanselmanVideo()
         {
             using (var context = _context)
             {
-                Video theRecord = context.Videos.Find("wZZ7oFKsKzY");
+                Video theRecord = context.Videos.Find("H2KkiRbDZyc");
                 Video theRecord2 = null;
 
                 if (theRecord != null)
                 {
                     context.Videos.Remove(theRecord);
                     context.SaveChanges();
-                    theRecord2 = context.Videos.Find("wZZ7oFKsKzY");
+                    theRecord2 = context.Videos.Find("H2KkiRbDZyc");
                     Assert.IsNull(theRecord2);
                 }
                 Assert.IsNull(theRecord2);
@@ -43,38 +43,38 @@ namespace TestProject
         [TestMethod]
         public void Insert()
         {
-            ////////////////just make sure nyan is gone
+            ////////////////just make sure scott is gone
             using (var context = _context)
             {
-                Video theRecord = context.Videos.Find("wZZ7oFKsKzY");
+                Video theRecord = context.Videos.Find("H2KkiRbDZyc");
                 Video theRecord2 = null;
 
                 if (theRecord != null)
                 {
                     context.Videos.Remove(theRecord);
                     context.SaveChanges();
-                    theRecord2 = context.Videos.Find("wZZ7oFKsKzY");
+                    theRecord2 = context.Videos.Find("H2KkiRbDZyc");
                     Assert.IsNull(theRecord2);
                 }
                 Assert.IsNull(theRecord2);
 
-                ////////////now add nyan
+                ////////////now add scott
                 var newvid = new Video
                 {
-                    Id = "wZZ7oFKsKzY",
-                    ChannelTitle = "Meow",
+                    Id = "H2KkiRbDZyc",
+                    ChannelTitle = "Scott",
                     Comment = "Comment",
                     Dislikes = 10,
                     Likes = 11,
-                    PublishDate = DateTime.Now.AddMonths(-8).ToShortDateString(),
+                    PublishDate = DateTime.Now.AddMonths(-8),
                     Rating = "*****",
-                    Title = "Nyan cat 10 hour"
+                    Title = "Hanselman's Video"
                 };
 
-                //////////prove nyan was added
+                //////////prove scott was added
                 context.Videos.Add(newvid);
                 context.SaveChanges();
-                Video theRecord3 = context.Videos.Find("wZZ7oFKsKzY");
+                Video theRecord3 = context.Videos.Find("H2KkiRbDZyc");
                 Assert.IsNotNull(theRecord3);
             }
         }
